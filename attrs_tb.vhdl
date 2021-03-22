@@ -59,10 +59,14 @@ entity attrs_tb is end entity;
 
 architecture attrs_tb_arch of attrs_tb is
   constant ti: time := 100 ps;
+  type T is range 6 to 66;
+  subtype SUBT is integer range 2 to 22;
   signal S: std_logic_vector(32 downto 0);
+  type A is array(79 downto 54) of std_logic;
+  signal ST: T := 19;
+  signal SI: integer := 666;
+  signal SSL: std_logic := '1';
 begin
-
-
   stim_proc: process
   begin
 
@@ -71,36 +75,38 @@ begin
     S <= ( 0 => '0', others => '1' );
     wait for 1 ns;
 
---T'BASE
---T'LEFT
---T'RIGHT
---T'HIGH
---T'LOW
---T'ASCENDING
---T'IMAGE(X)
---T'VALUE(X)
---T'POS(X)
---T'VAL(X)
---T'SUCC(X)
---T'PRED(X)
---T'LEFTOF(X)
---T'RIGHTOF(X)
---A'LEFT
---A'LEFT(N)
---A'RIGHT
---A'RIGHT(N)
---A'HIGH
---A'HIGH(N)
---A'LOW
---A'LOW(N)
---A'RANGE
---A'RANGE(N)
---A'REVERSE_RANGE
---A'REVERSE_RANGE(N)
---A'LENGTH
---A'LENGTH(N)
---A'ASCENDING
---A'ASCENDING(N)
+--  report "SUBT'BASE = " & to_string(SUBT'BASE); -- both T and SUBT crash ghdl
+    report "T'LEFT = " & to_string(T'LEFT);
+    report "T'RIGHT = " & to_string(T'RIGHT);
+    report "T'HIGH = " & to_string(T'HIGH);
+    report "T'LOW = " & to_string(T'LOW);
+    report "T'ASCENDING = " & to_string(T'ASCENDING);
+    report "T'IMAGE(ST) = " & T'IMAGE(ST);
+    report "T'VALUE(ST) = " & to_string(T'VALUE("33"));
+    report "T'POS(ST) = " & to_string(T'POS(ST));
+    report "T'VAL(ST) = " & to_string(T'VAL(ST));
+    report "T'SUCC(ST) = " & to_string(T'SUCC(ST));
+    report "T'PRED(ST) = " & to_string(T'PRED(ST));
+    report "T'LEFTOF(ST) = " & to_string(T'LEFTOF(ST));
+    report "T'RIGHTOF(ST) = " & to_string(T'RIGHTOF(ST));
+
+    report "A'LEFT = " & to_string(A'LEFT);
+--  report "A'LEFT(N) = " & to_string(A'LEFT(N));
+    report "A'RIGHT = " & to_string(A'RIGHT);
+--  report "A'RIGHT(N) = " & to_string(A'RIGHT(N));
+    report "A'HIGH = " & to_string(A'HIGH);
+--  report "A'HIGH(N) = " & to_string(A'HIGH(N));
+    report "A'LOW = " & to_string(A'LOW);
+--  report "A'LOW(N) = " & to_string(A'LOW(N));
+--  report "A'RANGE = " & to_string(A'RANGE); -- no overloaded function 'to_string'
+--  report "A'RANGE(N) = " & to_string(A'RANGE(N));
+--  report "A'REVERSE_RANGE = " & to_string(A'REVERSE_RANGE);
+--  report "A'REVERSE_RANGE(N) = " & to_string(A'REVERSE_RANGE(N));
+    report "A'LENGTH = " & to_string(A'LENGTH);
+--  report "A'LENGTH(N) = " & to_string(A'LENGTH(N));
+    report "A'ASCENDING = " & to_string(A'ASCENDING);
+--  report "A'ASCENDING(N) = " & to_string(A'ASCENDING(N));
+
     report "S'DELAYED(ti) = " & to_string(S'DELAYED(ti));
     report "S'STABLE = " & to_string( S'STABLE );
     report "S'STABLE(ti) = " & to_string( S'STABLE(ti) );
@@ -114,9 +120,10 @@ begin
     report "S'LAST_VALUE = " & to_string( S'LAST_VALUE );
     report "S'DRIVING = " & to_string( S'DRIVING );
     report "S'DRIVING_VALUE = " & to_string( S'DRIVING_VALUE );
---E'SIMPLE_NAME
---E'INSTANCE_NAME
---E'PATH_NAME
+
+    report "E'SIMPLE_NAME = " & attrs_tb'SIMPLE_NAME;
+    report "E'INSTANCE_NAME = " & attrs_tb'INSTANCE_NAME;
+    report "E'PATH_NAME = " & attrs_tb'PATH_NAME;
 
     assert false severity failure;
 
