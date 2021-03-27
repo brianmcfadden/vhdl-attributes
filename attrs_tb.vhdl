@@ -91,21 +91,21 @@ begin
     report "T'RIGHTOF(ST) = " & to_string(T'RIGHTOF(ST));
 
     report "A'LEFT = " & to_string(A'LEFT);
---  report "A'LEFT(N) = " & to_string(A'LEFT(N));
+    report "A'LEFT(N) = " & to_string(A'LEFT(1));
     report "A'RIGHT = " & to_string(A'RIGHT);
---  report "A'RIGHT(N) = " & to_string(A'RIGHT(N));
+    report "A'RIGHT(N) = " & to_string(A'RIGHT(1));
     report "A'HIGH = " & to_string(A'HIGH);
---  report "A'HIGH(N) = " & to_string(A'HIGH(N));
+    report "A'HIGH(N) = " & to_string(A'HIGH(1));
     report "A'LOW = " & to_string(A'LOW);
---  report "A'LOW(N) = " & to_string(A'LOW(N));
+    report "A'LOW(N) = " & to_string(A'LOW(1));
 --  report "A'RANGE = " & to_string(A'RANGE); -- no overloaded function 'to_string'
 --  report "A'RANGE(N) = " & to_string(A'RANGE(N));
 --  report "A'REVERSE_RANGE = " & to_string(A'REVERSE_RANGE);
 --  report "A'REVERSE_RANGE(N) = " & to_string(A'REVERSE_RANGE(N));
     report "A'LENGTH = " & to_string(A'LENGTH);
---  report "A'LENGTH(N) = " & to_string(A'LENGTH(N));
+    report "A'LENGTH(N) = " & to_string(A'LENGTH(1));
     report "A'ASCENDING = " & to_string(A'ASCENDING);
---  report "A'ASCENDING(N) = " & to_string(A'ASCENDING(N));
+    report "A'ASCENDING(N) = " & to_string(A'ASCENDING(1));
 
     report "S'DELAYED(ti) = " & to_string(S'DELAYED(ti));
     report "S'STABLE = " & to_string( S'STABLE );
